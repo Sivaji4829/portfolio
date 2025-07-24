@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --bg-color: #0f172a;
+  --primary-color: #1e293b;
+  --secondary-color: #334155;
+  --text-color: #f8fafc;
+  --accent-color: #38bdf8;
+  --font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* --- Progress Bar --- */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--accent-color);
+  transform-origin: 0%;
+  z-index: 1050; /* Ensure it's above Bootstrap's default z-index */
+}
+
+/* --- Section & Title Styling --- */
+section {
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+.section-title {
+  margin-bottom: 3rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+/* --- Hero Section --- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(20, 25, 30, 0.7); /* Darker overlay for better text readability */
+  z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero .subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: #cbd5e1; /* Slate 300 */
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-button {
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  /* border-radius: 50px; */
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  color: var(--text-color);
+  /* border: 2px solid rgba(255, 255, 255, 0.5); */
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.6s ease;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 30px;
+  border-radius: 50px;
+  color: var(--text-color);
+  font-weight: 600;
+  /* backdrop-filter: blur(5px); */
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+.nav-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.6s ease;
+}
+.nav-button:hover::after {
+  left: 100%;
+}
+.nav-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.4);
+}
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.scroll-button {
+  margin-top: 50px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 50px;
+  background-color: rgba(56, 189, 248, 0.8);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+}
+
+/* --- About Section --- */
+.about-section {
+    background-color: var(--bg-color);
+}
+
+.profile-pic {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--accent-color);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.about-section .lead {
+  color: #e2e8f0; /* Slate 200 */
+  font-size: 1.1rem;
+}
+
+/* --- Projects Section (Styling Bootstrap Cards) --- */
+.projects-section {
+     background-color:var(--bg-color); 
+}
+
+.project-card.card {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 12px;
+  color: var(--text-color);
+}
+
+.project-card .card-title {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.project-card .card-text {
+  color: #cbd5e1; /* Slate 300 */
+}
+
+.project-card .btn-primary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--bg-color);
+  font-weight: 600;
+}
+
+.project-card .btn-primary:hover {
+  background-color: #7dd3fc; /* Lighter accent */
+  border-color: #7dd3fc;
+}
+
+.project-card .btn-outline-secondary {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.project-card .btn-outline-secondary:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
+
+/* --- Achievements Section --- */
+.achievements-section {
+    background-color: var(--bg-color);
+}
+
+.achievements-card {
+    background: var(--primary-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    border: 1px solid var(--secondary-color);
+}
+
+.achievements-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.achievements-list {
+  list-style: none;
+  padding: 0;
+}
+
+.achievements-list li {
+  padding: 0.75rem 0 0.75rem 2rem;
+  color: #cbd5e1; /* Slate 300 */
+  position: relative;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.achievements-list li:last-child {
+  border-bottom: none;
+}
+
+.achievements-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    background-color: #f5f5f5;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact-section .lead {
+    color: #333;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* Icon-Only Button Styling */
+.contact-section .btn {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    font-size: 1.5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section .btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Color Overrides (Optional for clarity) */
+.contact-section .btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+}
+
+.contact-section .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: #fff;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--bg-color) !important; /* Override Bootstrap's bg-dark */
+  padding: 2rem 0;
+  color: #94a3b8; /* Slate 400 */
+  font-size: 0.9rem;
+}
+
+/* --- Responsive Overrides --- */
+@media (max-width: 768px) {
+  .about-section .text-center {
+      text-align: center !important;
+  }
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1.5rem;
+  }
+  .achievements-card {
+      margin-top: 1.5rem;
+  }
+}
+.skills-section {
+    background-color: #f8f9fa; /* Bootstrap's light gray */
+    padding: 3rem 0;
+}
+
+.skill-category-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.skill-category-card:hover {
+    transform: translateY(-10px);
+}
+
+.skill-category-card h3 {
+    color: #0d6efd; /* Bootstrap primary */
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 0.5rem;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-item {
+    background-color: #e2e8f0;
+    color: #212529;
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
